@@ -1,7 +1,18 @@
 <template>
   <body class="bg-gray-200">
     <div class="container flex items-center h-screen justify-center">
-      <div class="bg-white px-40 py-20 rounded-xl shadow-xl">
+      <div
+        class="
+          bg-white
+          px-40
+          py-20
+          rounded-xl
+          shadow-xl
+          overflow-y-scroll
+          md:no-scrollbar
+        "
+        style="max-height: 570px"
+      >
         <!-- input field -->
         <div class="flex items-center justify-center h-full mb-16 relative">
           <input
@@ -113,4 +124,4 @@ export default {
 };
 </script>
 
-<style src="./assets/tailwind.css"></style>
+<style src="./app.css"></style>
