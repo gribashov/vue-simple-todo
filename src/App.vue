@@ -11,12 +11,13 @@
           overflow-y-scroll
           md:no-scrollbar
         "
-        style="max-height: 570px"
+        style="max-height: 570px; min-height: 570px"
       >
         <!-- input field -->
         <div class="flex items-center justify-center h-full mb-16 relative">
           <input
             v-model="note"
+            v-on:keydown.enter="add"
             type="text"
             class="outline-none border-2 rounded-xl pl-8 pr-16 text-xl"
             style="width: 700px; height: 80px"
@@ -80,6 +81,7 @@
             "
           >
             <svg
+              v-on:click="handleDelete(n)"
               width="36"
               height="36"
               viewBox="0 0 36 36"
@@ -117,8 +119,12 @@ export default {
       const newNote = {
         text: this.note
       };
-      this.notes.push(newNote);
-      this.note;
+      if (newNote.text !== "") {
+        this.notes.push(newNote);
+      }
+    },
+    handleDelete(noteForRemove) {
+      this.notes = this.notes.filter((n) => n !== noteForRemove);
     }
   }
 };
