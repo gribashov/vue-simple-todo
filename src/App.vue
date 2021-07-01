@@ -121,6 +121,7 @@ export default {
       };
       if (newNote.text !== "") {
         this.notes.push(newNote);
+        this.note = "";
       }
     },
     handleDelete(noteForRemove) {
